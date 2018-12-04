@@ -1,0 +1,53 @@
+{
+  "name": "articles-annotation",
+  "version": "1.0.0",
+  "description": "todo",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -p --progress --config webpack.config.js",
+    "dev-build": "webpack --progress -d --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --progress -d --config webpack.config.js --watch"
+  },
+  "keywords": [
+    "python",
+    "react",
+    "npm",
+    "webpack"
+  ],
+  "author": "Anastasia Shadrina",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-2"
+    ]
+  },
+  "devDependencies": {
+    "axios": "^0.17.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "image-webpack-loader": "^4.5.0",
+    "node-sass": "^4.7.2",
+    "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.2.0",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.10.0",
+    "file-loader": "^1.1.5"
+  },
+  "dependencies": {
+    "ajv": "^6.0.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
+  }
+}

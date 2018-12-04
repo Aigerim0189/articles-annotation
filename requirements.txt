@@ -1,0 +1,6 @@
+nltk
+werkzeug
+flask
+py-postgresql
+rake_nltk
+pymystem3
