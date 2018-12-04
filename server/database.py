@@ -1,8 +1,8 @@
 import postgresql
 
 DB_NAME = 'quazi'
-DB_USER = 'usr'
-DB_PASS = '12345'
+DB_USER = 'postgres'
+DB_PASS = 'postgres'
 DB_HOST = 'localhost'
 DB_PORT = '5432'
 

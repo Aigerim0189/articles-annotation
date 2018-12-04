@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request
 
 from engine import split_text_into_sentences, \
     delete_background_sentences, \
-    group_sentences, detailing
+    group_sentences, detailing, get_verbs_from_db, get_nouns_from_db, get_connectors_from_db
 from rake_words import RakeRussian
 from util import OUTPUT_DIR, RESOURCE_DIR
 from util import get_indexed_dict_with
@@ -42,4 +42,32 @@ def process_rake():
         stop_keywords = f.readlines()
         result = [x for x in right_phrases if x not in stop_keywords]
 
+    with open(os.path.join('..', OUTPUT_DIR, 'rake_keywords.txt'), 'w', encoding='utf-8') as file:
+        file.write(text)
+
     return json.dumps(result), 200
+
+@blueprint.route('/get-verbs', methods=['GET'])
+def get_verbs():
+    verbs = get_verbs_from_db()
+    return json.dumps(verbs), 200
+
+@blueprint.route('/get-nouns', methods=['GET'])
+def get_nouns():
+    nouns = get_nouns_from_db()
+    return json.dumps(nouns), 200
+
+@blueprint.route('/get-connectors', methods=['GET'])
+def get_connectors():
+    connectors = get_connectors_from_db()
+    return json.dumps(connectors), 200
+
+@blueprint.route('/save-info', methods=['POST'])
+def save_info():
+    info = request.json.get('info')
+
+    with open(os.path.join('..', OUTPUT_DIR, 'sentences_info.txt'), 'w', encoding='utf-8') as file:
+        for item in info:
+            file.write("%s\n" % item)
+
+    return json.dumps(''), 200
